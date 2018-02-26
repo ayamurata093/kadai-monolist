@@ -20,7 +20,14 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
-    @want_users = @item.want_users
+    
+    if @item = Item.find(params[:id])
+      @want_users = @item.want_users
+    end
+    
+    else @item = Item.find(params[:id])
+      @have_users = @item.have_users
+    end  
   end
-end
+
+  
